@@ -24,7 +24,8 @@ from absl import logging
 from vatt.configs import factory as config_factory
 from vatt.experiments import finetune
 from vatt.experiments import pretrain
-
+import sys
+sys.path.append('../vatt')
 flags.DEFINE_string('task', 'PRETRAIN', 'PRETRAIN or FINETUNE.')
 flags.DEFINE_string('mode', 'train', 'train or eval.')
 flags.DEFINE_string('model_dir', None, 'Default path for the experiment.')
