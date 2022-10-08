@@ -50,9 +50,7 @@ Please download [this file](https://storage.cloud.google.com/tf_model_garden/vis
 ## PreTrain
 
 Assuming all datasets are stored and dataloaders are functioning, pre-training
-can be lauched using the following: `python -m vatt.main --task=pretrain
---mode=train --model_dir=PATH/TO/RUN --model_arch=tx_fac
---strategy_type=mirrored`
+can be lauched using the following: `python -m vatt.main --task=pretrain --mode=train --model_dir=PATH/TO/RUN --model_arch=tx_fac --strategy_type=mirrored`
 
 If `--mode=train`, the self-supervised training will launch and if `--mode=eval`
 the thorough evaluation will be launched.
