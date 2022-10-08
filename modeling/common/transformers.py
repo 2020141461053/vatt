@@ -15,7 +15,7 @@
 
 """Transformer modules."""
 
-import tenso0rflow as tf
+import tensorflow as tf
 import tensorflow_addons.image as tfa_image
 
 
