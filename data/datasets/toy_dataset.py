@@ -64,7 +64,7 @@ class ToyFactory(loading.BaseDMVRFactory, abc.ABC):
              # Text related parameters.
              max_num_words = 16,
              max_context_sentences = 1,
-             tokenizer = 'howto100m_en',
+             tokenizer = 'kinetics-400',
              prepend_bos = False,
              append_eos = False,
              keep_raw_string = False,
