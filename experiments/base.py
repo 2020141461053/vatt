@@ -280,9 +280,9 @@ class Executor(object):
     params = self.params
     auxiliary_metrics = self.metrics
     model_dir = self.params.model_dir
-    logging.info('(train)Model Parameters: %s', pprint.pformat(self.data))
+    #logging.info('(train)Model Parameters: %s', pprint.pformat(self.data))
 
-# construct the dataloaders and data iterators
+    #construct the dataloaders and data iterators
     dataloaders = self.get_dataloaders(self.data, self.strategy)
     assert len(dataloaders) == 1, 'Train only accepts one dataloader!'
     data_iterator = dataloaders[0]['iterator']

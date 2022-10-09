@@ -17,6 +17,7 @@
 
 import abc
 import os
+import pprint
 from typing import Any, Union, Optional, List, Mapping
 
 from absl import logging
@@ -118,6 +119,7 @@ class BaseLoader(object):
     self.shuffle = mode == "train"
     self.mode = mode
     self.name = name
+    logging.info('(loading.py)Model Parameters: %s', pprint.pformat(params.as_dict()))
 
     # Tune dmvr_factory for large-scale runs
     for factory in self.dmvr_factory:
@@ -143,7 +145,8 @@ class BaseLoader(object):
     else:
       per_replica_batch_size = self.batch_size
 
-    # Initialize tokenizer, if any
+
+# Initialize tokenizer, if any
     for factory in self.dmvr_factory:
       if hasattr(factory, "tokenizer"):
         factory.tokenizer.initialize()
