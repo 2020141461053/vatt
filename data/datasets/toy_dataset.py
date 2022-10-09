@@ -24,12 +24,12 @@ from vatt.data import processing
 class ToyFactory(loading.BaseDMVRFactory, abc.ABC):
   """Base class for a toy factory."""
 
-  _BASE_DIR = 'PATH/TO/YOUR/TFRECORD'
+  _BASE_DIR = 'KINETICS400'
   _NUM_CLASSES = 1000
 
   _TABLES = {
-      'train': 'train@10',
-      'test': 'test@1',
+      'train': 'train_256',
+      'test': 'test_256',
   }
 
   def __init__(self, subset = 'train', split = 1):
@@ -79,35 +79,7 @@ class ToyFactory(loading.BaseDMVRFactory, abc.ABC):
     """Default build for this dataset.
 
     Args:
-      is_training: whether or not in training mode.
-      num_frames: number of frames per subclip.
-      stride: temporal stride to sample frames.
-      num_test_clips: number of test clip (1 by default). If more than one,
-        this will sample multiple linearly spaced clips within each video at
-        test time. If 1, then a single clip in the middle of the video is
-        sampled.
-      min_resize: frames are resized so that min width/height is min_resize.
-      crop_size: final size of the frame after cropping the resized frames.
-      multi_crop: if 3-view crop should be performed.
-      crop_resize_style: The style of Crop+Resize. 'Inception' or 'VGG'.
-      min_aspect_ratio: The minimum aspect range for cropping.
-      max_aspect_ratio: The maximum aspect range for cropping.
-      min_area_ratio: The minimum area range for cropping.
-      max_area_ratio: The maximum area range for cropping.
-      zero_centering_image: whether to have images between [-1, 1] or [0, 1].
-      color_augmentation: Whether to jitter color or not.
-      max_num_words: maximum number of words to keep from the text.
-      max_context_sentences: number of temporal neighboring sentences to sample.
-      tokenizer: defining which tokenizer in what language should be used.
-      prepend_bos: prepend BOS token in the tokenizer.
-      append_eos: append EOS token in the tokenizer.
-      keep_raw_string: keep the raw string or not.
-      num_samples: number of audio samples.
-      audio_stride: temporal stride for audio samples.
-      sync_audio_and_image: sample audio and image in sync.
-      one_hot_label: whether or not to return one hot version of labels.
-      output_label_string: whether or not to return label as text.
-      **kwargs: additional args
+      n
     """
 
     del kwargs

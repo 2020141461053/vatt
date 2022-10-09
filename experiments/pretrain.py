@@ -14,7 +14,7 @@
 # limitations under the License.
 
 """Main experiments script for pre-training MMV model OR vatt."""
-
+import pprint
 from typing import Optional
 
 from absl import logging
@@ -40,6 +40,7 @@ class BaseExecutor(base.Executor):
   """Constructs the necessary modules to perform train or evaluation."""
 
   def __init__(self, params):
+#在这里已经搞好了howto100
     """在给定策略配置的情况下构造策略"""
     strategy = base.create_strategy(params.strategy_config)
     """获取训练数据"""
@@ -184,7 +185,7 @@ class TrainExecutor(BaseExecutor):
   """Constructs the necessary modules to perform training."""
 
   """执行BaseExecutor->base的构造函数"""
-  
+
   def prepare_inputs(self, inputs):
     """Prepares inputs on device to be fed to model in train mode."""
 

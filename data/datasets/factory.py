@@ -26,7 +26,7 @@ DS_TO_FACTORY = {
     #########################################
     #### put your dataset factories here ####
     #########################################
-    'TOY_DS': toy_dataset.ToyFactory,
+    'ds_toy': toy_dataset.ToyFactory,
 }
 
 
@@ -36,7 +36,7 @@ def get_ds_factory(dataset_name = 'toy_ds',
 
   dataset_name = dataset_name.upper()
 
-  ds = DS_TO_FACTORY[dataset_name]
+  ds = DS_TO_FACTORY["ds_toy"]
 
   if override_args:
     return functools.partial(ds, **override_args)
