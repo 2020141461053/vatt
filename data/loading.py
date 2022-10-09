@@ -119,8 +119,38 @@ class BaseLoader(object):
     self.shuffle = mode == "train"
     self.mode = mode
     self.name = name
-    logging.info('(loading.py)Model Parameters: %s', pprint.pformat(params.as_dict()))
-
+    """
+    'audio_noise': 0.01,
+ 'audio_stride': 1,
+ 'batch_size': 8,
+ 'color_augment': True,
+ 'crop_resize_style': 'VGG',
+ 'frame_size': 224,
+ 'has_data': True,
+ 'linearize_vision': True,
+ 'max_area_ratio': 1.0,
+ 'max_aspect_ratio': 2.0,
+ 'max_context_sentences': 4,
+ 'max_num_words': 16,
+ 'mel_bins': 80,
+ 'min_area_ratio': 0.08,
+ 'min_aspect_ratio': 0.5,
+ 'min_resize': 224,
+ 'mixup_alpha': 10,
+ 'mixup_beta': 2,
+ 'name': 'howto100m+audioset',
+ 'num_examples': -1,
+ 'num_frames': 32,
+ 'raw_audio': True,
+ 'scale_jitter': True,
+ 'space_to_depth': False,
+ 'split': 'train',
+ 'stft_length': 0.04267,
+ 'stft_step': 0.02134,
+ 'text_tokenizer': 'WordTokenizer',
+ 'video_stride': 1,
+ 'zero_centering_image': True}
+    """
     # Tune dmvr_factory for large-scale runs
     for factory in self.dmvr_factory:
       factory.tune(
@@ -157,7 +187,7 @@ class BaseLoader(object):
           factory.make_dataset(
               shuffle=self.shuffle,
               num_epochs=self.num_epochs,
-              batch_size=per_replica_batch_size,
+              batch_size=8,
               padded_batch=False,
               drop_remainder=True,
               keep_key=False,
