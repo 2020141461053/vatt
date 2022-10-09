@@ -13,8 +13,7 @@ There is a minimum framework requirement for this codebase: - `Python 3.8`,
 
 ### Libraries
 
-Make sure to install the following libraries by running `pip install -r
-requirements.txt`:
+Make sure to install the following libraries by running `pip install -r requirements.txt -ihttp://pypi.douban.com/simple --trusted-host pypi.douban.com`:
 
 -   `tensorflow==2.7.0`
 -   `tensorflow_addons==0.15.0`
