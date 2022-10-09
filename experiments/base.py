@@ -280,7 +280,7 @@ class Executor(object):
     params = self.params
     auxiliary_metrics = self.metrics
     model_dir = self.params.model_dir
-    logging.info('(train)Model Parameters: %s', pprint.pformat(params.as_dict()))
+    logging.info('(train)Model Parameters: %s', pprint.pformat(self.data))
 
 # construct the dataloaders and data iterators
     dataloaders = self.get_dataloaders(self.data, self.strategy)
