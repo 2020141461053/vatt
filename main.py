@@ -82,7 +82,7 @@ def main(argv):
   params = get_params()
 
 
-  #logging.info('Model Parameters: %s', pprint.pformat(params.as_dict()))
+  logging.info('Model Parameters: %s', pprint.pformat(params.as_dict()))
   if params.task.lower() == 'pretrain':
     executor = pretrain.get_executor(params=params)
 

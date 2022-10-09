@@ -16,6 +16,7 @@
 """Base for train or eval loops for any experiments script."""
 
 import os
+import pprint
 from typing import Dict, Optional, Any
 
 from absl import logging
@@ -279,8 +280,9 @@ class Executor(object):
     params = self.params
     auxiliary_metrics = self.metrics
     model_dir = self.params.model_dir
+    logging.info('Model Parameters: %s', pprint.pformat(params.as_dict()))
 
-    # construct the dataloaders and data iterators
+# construct the dataloaders and data iterators
     dataloaders = self.get_dataloaders(self.data, self.strategy)
     assert len(dataloaders) == 1, 'Train only accepts one dataloader!'
     data_iterator = dataloaders[0]['iterator']
