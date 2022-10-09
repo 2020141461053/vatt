@@ -126,7 +126,7 @@ class ToyFactory(loading.BaseDMVRFactory, abc.ABC):
         )
 
     # Use the HowTo100M tokenizer by default.
-   # self.tokenizer = processing.get_tokenizer(tokenizer)
+    self.tokenizer = processing.get_tokenizer(tokenizer)
 
     processing.add_text(
         parser_builder=self.parser_builder,
