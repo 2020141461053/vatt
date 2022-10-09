@@ -24,7 +24,7 @@ from vatt.data import processing
 class ToyFactory(loading.BaseDMVRFactory, abc.ABC):
   """Base class for a toy factory."""
 
-  _BASE_DIR = 'KINETICS400'
+  _BASE_DIR = './KINETICS400'
   _NUM_CLASSES = 1000
 
   _TABLES = {
