@@ -178,7 +178,6 @@ class BaseLoader(object):
 
 # Initialize tokenizer, if any
     for factory in self.dmvr_factory:
-      print(factory)
       if hasattr(factory, "tokenizer"):
         factory.tokenizer.initialize()
 
