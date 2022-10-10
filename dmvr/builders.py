@@ -767,6 +767,7 @@ class _Builder(abc.ABC):
       output = copy.copy(features_dict)
       state: Dict[str, Any] = {}
       for fd in fns_list:
+        print(fd)
         if fd.feature_name:
           if fd.stateful:
             fn = typing.cast(StatefulFeatureProcessor, fd.fn)
