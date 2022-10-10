@@ -17,7 +17,6 @@
 
 import abc
 import os
-import pprint
 from typing import Any, Union, Optional, List, Mapping
 
 from absl import logging
@@ -26,7 +25,7 @@ from dmvr import sources
 from dmvr import video_dataset as dmvr_base
 import tensorflow as tf
 
-from vatt.data import processing
+from data import processing
 
 
 # ----------------------------------------------------------------------
@@ -46,12 +45,7 @@ def get_source(source_type):
   else:
     raise NotImplementedError
 
-"""DMVR（decode MV refinement）解码端MV细化。
 
-顾名思义，就是将MV在解码端做一个细化操作，那么相应的，就可以不在编码端做过多的搜索细化等操作。
-好处是可以减小传输的码率，缩短编码时间。为了保证质量，将细化的任务放在解码端，
-虽然增加了一部分解码时间，但在一定条件下，可以将增加的解码时间减小到最少。
-"""
 class BaseDMVRFactory(dmvr_base.BaseVideoDatasetFactory, abc.ABC):
   """Factory for datasets from a filesystem directly."""
 
@@ -75,7 +69,6 @@ class BaseDMVRFactory(dmvr_base.BaseVideoDatasetFactory, abc.ABC):
       ValueError: Table name does not exist.
     """
     tables_dict = self.tables()
-
     if table not in tables_dict:
       raise ValueError(f"Invalid table \'{table}\'. "
                        f"The available tables are: {tables_dict.keys()}.")
@@ -120,38 +113,7 @@ class BaseLoader(object):
     self.shuffle = mode == "train"
     self.mode = mode
     self.name = name
-    """
-    'audio_noise': 0.01,
- 'audio_stride': 1,
- 'batch_size': 8,
- 'color_augment': True,
- 'crop_resize_style': 'VGG',
- 'frame_size': 224,
- 'has_data': True,
- 'linearize_vision': True,
- 'max_area_ratio': 1.0,
- 'max_aspect_ratio': 2.0,
- 'max_context_sentences': 4,
- 'max_num_words': 16,
- 'mel_bins': 80,
- 'min_area_ratio': 0.08,
- 'min_aspect_ratio': 0.5,
- 'min_resize': 224,
- 'mixup_alpha': 10,
- 'mixup_beta': 2,
- 'name': 'howto100m+audioset',
- 'num_examples': -1,
- 'num_frames': 32,
- 'raw_audio': True,
- 'scale_jitter': True,
- 'space_to_depth': False,
- 'split': 'train',
- 'stft_length': 0.04267,
- 'stft_step': 0.02134,
- 'text_tokenizer': 'WordTokenizer',
- 'video_stride': 1,
- 'zero_centering_image': True}
-    """
+
     # Tune dmvr_factory for large-scale runs
     for factory in self.dmvr_factory:
       factory.tune(
@@ -176,8 +138,7 @@ class BaseLoader(object):
     else:
       per_replica_batch_size = self.batch_size
 
-
-# Initialize tokenizer, if any
+    # Initialize tokenizer, if any
     for factory in self.dmvr_factory:
       if hasattr(factory, "tokenizer"):
         factory.tokenizer.initialize()

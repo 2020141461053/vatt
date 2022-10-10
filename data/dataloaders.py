@@ -20,14 +20,14 @@ from typing import Any, Optional
 
 import tensorflow as tf
 
-from vatt.data import loading
-from vatt.data import processing
-from vatt.data.datasets import factory as ds_fctr
+from data import loading
+from data import processing
+from data.datasets import factory as ds_fctr
 
 
 ExpConfig = Any
 FeatureNames = processing.FeatureNames
-SELF_SUP_DS = ['howto100m', 'audioset']
+SELF_SUP_DS = ['howto100m', 'audioset',"mosi_ds","hmdb51"]
 VID_CLS_DS = ['kinetics400',
               'kinetics600',
               'kinetics700',
@@ -51,6 +51,7 @@ CLS_DS = {'hmdb51': {'num_classes': 51,
           'mit': {'num_classes': 339},
           'imagenet': {'num_classes': 1000},
           'audioset': {'num_classes': 527},
+          'mosi_ds':{'num_classes':7},
           }
 TEXT_DS = {'howto100m': {'num_clips': 10000},
            'youcook2': {'num_clips': 3320},
