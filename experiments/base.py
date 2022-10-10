@@ -282,7 +282,7 @@ class Executor(object):
     model_dir = self.params.model_dir
     print(model_dir)
     #construct the dataloaders and data iterators
-    print(self.data)
+    print(pprint.pformat(self.data.as_dict()))
     dataloaders = self.get_dataloaders(self.data, self.strategy)
     assert len(dataloaders) == 1, 'Train only accepts one dataloader!'
     data_iterator = dataloaders[0]['iterator']
