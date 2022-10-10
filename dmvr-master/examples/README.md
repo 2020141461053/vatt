@@ -49,10 +49,8 @@ caption. As an example we are going to download two videos (creative common
 license):
 
 ```sh
-wget https://cdn.spacetelescope.org/archives/videos/medium_podcast/heic1608c.mp4 \
--O /tmp/heic1608c.mp4
-wget https://upload.wikimedia.org/wikipedia/commons/1/18/BRKM_Javeline_Throw.webm \
--O /tmp/BRKM_Javeline_Throw.webm
+wget https://cdn.spacetelescope.org/archives/videos/medium_podcast/heic1608c.mp4 -O /tmp/heic1608c.mp4
+wget https://upload.wikimedia.org/wikipedia/commons/1/18/BRKM_Javeline_Throw.webm -O /tmp/BRKM_Javeline_Throw.webm
 ```
 
 We can create the following csv with the downloaded videos to process:
@@ -89,9 +87,7 @@ following commands:
 
 ```sh
 mkdir /tmp/generated_dataset
-python generate_from_file.py \
---csv_path=/tmp/input.csv \
---output_path=/tmp/generated_dataset
+python generate_from_file.py --csv_path=/tmp/input.csv --output_path=/tmp/generated_dataset
 ```
 
 where a description of the arguments is given below:
@@ -133,10 +129,8 @@ rm test_train_splits.rar
 Create the HMDB CSV file using our provided script:
 
 ```sh
-mkdir hmdb_csv
-python generate_hmdb_csv.py \
-  --input_path=testTrainMulti_7030_splits \
-  --output_path=hmdb_csv
+
+python generate_hmdb_csv.py --input_path=testTrainMulti_7030_splits  --output_path=hmdb_csv
 ```
 
 This will generate in the *hmdb_csv* folder, 6 csv files: train_1.csv,
@@ -151,8 +145,7 @@ extract the videos from the official website and store them in a newly created
 
 ```sh
 mkdir hmdb_videos
-wget https://serre-lab.clps.brown.edu/wp-content/uploads/2013/10/hmdb51_org.rar \
--P hmdb_videos
+wget https://serre-lab.clps.brown.edu/wp-content/uploads/2013/10/hmdb51_org.rar -P hmdb_videos
 cd hmdb_videos
 unrar x hmdb51_org.rar
 rm hmdb51_org.rar
@@ -166,10 +159,7 @@ run the generation pipeline on the train set of the first split with the
 following command:
 
 ```sh
-python generate_from_file.py \
-  --csv_path=hmdb_csv/train_1.csv \
-  --video_root_path=hmdb_videos \
-  --output_path=/path/to/hmdb_shards
+python generate_from_file.py --csv_path=hmdb_csv/train_1.csv  --video_root_path=hmdb_videos --output_path=hmdb_shards
 ```
 
 and this will generate the tfrecords in the DMVR format for the HMDB-51 split 1
@@ -189,10 +179,7 @@ performance of the recently introduced
 To run the script simply do:
 
 ```shell
-python linear_mmv_hmdb.py \
-  --data_path=/path/to/hmdb_shards \
-  --model_name=s3d \
-  --hmdb51_split=1
+python linear_mmv_hmdb.py --data_path=hmdb_shards --model_name=s3d --hmdb51_split=1
 ```
 
 It supports three different models and the script should reproduce
