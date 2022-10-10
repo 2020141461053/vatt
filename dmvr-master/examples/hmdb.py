@@ -16,8 +16,8 @@
 import os
 from typing import Optional
 
-from dmvr import modalities
-from dmvr import video_dataset
+from dmvrmaster.dmvr import modalities
+from dmvrmaster.dmvr import video_dataset
 
 
 class HMDB51Factory(video_dataset.BaseVideoDatasetFactory):

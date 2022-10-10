@@ -1,4 +1,7 @@
-# VATT in Tensorflow 2
+# VATT in 
+
+/public/home/lsy/anaconda3/envs/pbw/lib/python3.8/site-packages
+/public/home/lsy/anaconda3/envs/pbw/lib/python3.8/site-packages/vatt/vatt_mosi-master
 
 This is the official code release for [VATT: Transformers for Multimodal
 Self-Supervised Learning from Raw Video, Audio and

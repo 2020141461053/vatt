@@ -75,6 +75,7 @@ class BaseDMVRFactory(dmvr_base.BaseVideoDatasetFactory, abc.ABC):
       ValueError: Table name does not exist.
     """
     tables_dict = self.tables()
+
     if table not in tables_dict:
       raise ValueError(f"Invalid table \'{table}\'. "
                        f"The available tables are: {tables_dict.keys()}.")

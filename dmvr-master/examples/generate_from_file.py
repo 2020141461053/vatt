@@ -25,6 +25,9 @@ import numpy as np
 import pandas as pd
 import tensorflow as tf
 
+
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+
 flags.DEFINE_string("csv_path", None, "Input csv")
 flags.DEFINE_string("output_path", None, "Tfrecords output path.")
 flags.DEFINE_string("video_root_path", None,
@@ -38,6 +41,13 @@ FLAGS = flags.FLAGS
 
 
 _JPEG_HEADER = b"\xff\xd8"
+
+# break_video = ['/home/ubuntu/HDD2T/MYT/VATT/kinetics-dataset/k400/test/IhanWvpHGu8_001243_001253.mp4',
+#                '/home/ubuntu/HDD2T/MYT/VATT/kinetics-dataset/k400/test/DX6bvKEg_R0_000087_000097.mp4',
+#                '/home/ubuntu/HDD2T/MYT/VATT/kinetics-dataset/k400/test/wu4rnwbkNfw_000062_000072.mp4',
+#                '/home/ubuntu/HDD2T/MYT/VATT/kinetics-dataset/k400/test/c57P73j3cfo_000033_000043.mp4',
+#                '/home/ubuntu/HDD2T/MYT/VATT/kinetics-dataset/k400/test/XFkykETgkoo_002967_002977.mp4',
+#                '/home/ubuntu/HDD2T/MYT/VATT/kinetics-dataset/k400/test/305P2f9_lko_004145_004155.mp4']
 
 
 @contextlib.contextmanager
@@ -85,13 +95,13 @@ def set_context_float(key: str, value: float,
 
 def set_context_int(key: str, value: int, sequence: tf.train.SequenceExample):
   sequence.context.feature[key].int64_list.value[:] = (value,)
-
+# '/home/ubuntu/HDD2T/MYT/VATT/kinetics-dataset/k400/test/dNyqMN-dcTE_000051_000061.mp4'
 
 def extract_frames(video_path: str,
                    start: float,
                    end: float,
                    fps: int = 10,
-                   min_resize: int = 256):
+                   min_resize: int = 224):
   """Extract list of jpeg bytes from video_path using ffmpeg."""
   new_width = "(iw/min(iw,ih))*{}".format(min_resize)
   cmd = (
@@ -162,7 +172,13 @@ def generate_sequence_example(video_path: str,
 
 def main(argv):
   del argv
-  # reads the input csv.
+  break_video = []
+  with open('break_val.txt', 'r') as f:
+      c = f.readlines()
+  for i in c:
+      i = i.rstrip('\n')
+      # print(i)
+      break_video.append(i)
   input_csv = pd.read_csv(FLAGS.csv_path)
   if FLAGS.num_shards == -1:
     num_shards = int(math.sqrt(len(input_csv)))
@@ -186,18 +202,33 @@ def main(argv):
     input_csv = input_csv.sample(frac=1)
   with _close_on_exit(writers) as writers:
     for i in range(len(input_csv)):
+      v = input_csv["video_path"].values[i]
       print(
           "Processing example %d of %d   (%d%%) \r" %
           (i, len(input_csv), i * 100 / len(input_csv)),
           end="")
-      v = input_csv["video_path"].values[i]
+      # v = input_csv["video_path"].values[i]
+      # print(v,flush=True)
+      # import sys
+      # sys.stdout.flush()
+      if v in break_video:
+        continue
       s = input_csv["start"].values[i]
+      # s = 0
       e = input_csv["end"].values[i]
+      # e = 9
       l = input_csv["label"].values[i] if "label" in input_csv else None
       c = input_csv["caption"].values[i] if "caption" in input_csv else None
+      # try:
       seq_ex = generate_sequence_example(
           v, s, e, label_name=l, caption=c, label_map=l_map)
       writers[i % len(writers)].write(seq_ex.SerializeToString())
+      # except:
+      #     break_video.append(v)
+  # with open('break_val.txt','w') as fw:
+  #    for i in break_video:
+  #        fw.write(i+'\n')
+
 
 
 if __name__ == "__main__":

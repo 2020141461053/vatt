@@ -16,7 +16,7 @@
 
 from absl import app
 from absl import flags
-from dmvr import builders
+from dmvrmaster.dmvr import builders
 import hmdb
 import numpy as np
 from sklearn import preprocessing
@@ -53,7 +53,6 @@ _MODELS2REG = {'s3d': 0.0003,
                'tsm-resnet50': 0.0001,
                'tsm-resnet50x2': 0.0003}
 
-
 def compute_accuracy_metrics(pred: np.ndarray, gt: np.ndarray,
                              prefix: str = ''):
   order_pred = np.argsort(pred, axis=1)
@@ -71,8 +70,9 @@ def main(argv):
 
   # Load the model.
   sklearn_reg = _MODELS2REG[FLAGS.model_name]
-  module = hub.load(f'https://tfhub.dev/deepmind/mmv/{FLAGS.model_name}/1')
-
+  # module = hub.load(f'https://tfhub.dev/deepmind/mmv/{FLAGS.model_name}/1')
+  # module = hub.load(r'/models/mmv_s3d_1')
+  module  = hub.load('/home/ubuntu/HDD2T/MYT/VATT/vatt/dmvrmaster/examples/models/mmv_s3d_1')
   def get_features(input_frames: np.ndarray):
     vision_output = module.signatures['video'](
         tf.constant(tf.cast(input_frames, dtype=tf.float32)))
@@ -149,4 +149,6 @@ def main(argv):
   print(metrics)
 
 if __name__ == '__main__':
+  import os
+  print(os.getcwd())
   app.run(main)

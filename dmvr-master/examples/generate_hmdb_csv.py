@@ -117,3 +117,7 @@ def main(argv):
 
 if __name__ == '__main__':
   app.run(main)
+# python generate_from_file.py \
+#   --csv_path=hmdb_csv/train_2.csv \
+#   --video_root_path=hmdb_videos \
+#   --output_path=/path/to/hmdb_shards
