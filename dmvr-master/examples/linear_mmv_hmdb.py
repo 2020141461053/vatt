@@ -72,7 +72,7 @@ def main(argv):
   sklearn_reg = _MODELS2REG[FLAGS.model_name]
   # module = hub.load(f'https://tfhub.dev/deepmind/mmv/{FLAGS.model_name}/1')
   # module = hub.load(r'/models/mmv_s3d_1')
-  module  = hub.load('/home/ubuntu/HDD2T/MYT/VATT/vatt/dmvrmaster/examples/models/mmv_s3d_1')
+  module  = hub.load('/public/home/lsy/anaconda3/envs/pbw/lib/python3.8/site-packages/vatt/dmvr-master/examples/models/mmv_s3d_1')
   def get_features(input_frames: np.ndarray):
     vision_output = module.signatures['video'](
         tf.constant(tf.cast(input_frames, dtype=tf.float32)))
