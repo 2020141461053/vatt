@@ -18,7 +18,8 @@
 import functools
 from typing import Any, Dict, Optional, Text
 
-from vatt.data.datasets import toy_dataset
+from data.datasets import toy_dataset
+from data.datasets import hmdb
 
 
 # DMVR-based factories
@@ -26,17 +27,18 @@ DS_TO_FACTORY = {
     #########################################
     #### put your dataset factories here ####
     #########################################
-    'ds_toy': toy_dataset.ToyFactory,
+    # 'TOY_DS': toy_dataset.ToyFactory,
+    'HMDB51': hmdb.HMDB,
 }
 
 
-def get_ds_factory(dataset_name = 'toy_ds',
+def get_ds_factory(dataset_name = 'hmdb51',
                    override_args = None):
   """Gets dataset source and name and returns its factory class."""
 
   dataset_name = dataset_name.upper()
 
-  ds = DS_TO_FACTORY["ds_toy"]
+  ds = DS_TO_FACTORY["hmdb51"]
 
   if override_args:
     return functools.partial(ds, **override_args)
