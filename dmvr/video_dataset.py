@@ -17,8 +17,8 @@ import abc
 from typing import Any, List, Optional, Type, TypeVar
 
 from absl import logging
-from dmvrmaster.dmvr import builders
-from dmvrmaster.dmvr import sources
+from dmvr import builders
+from dmvr import sources
 import tensorflow as tf
 
 # Types.
