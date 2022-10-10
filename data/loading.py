@@ -187,7 +187,7 @@ class BaseLoader(object):
           factory.make_dataset(
               shuffle=self.shuffle,
               num_epochs=self.num_epochs,
-              batch_size=8,
+              batch_size=per_replica_batch_size,
               padded_batch=False,
               drop_remainder=True,
               keep_key=False,
