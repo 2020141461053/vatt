@@ -52,6 +52,8 @@ def get_params():
 
   task = FLAGS.task
   model_arch = FLAGS.model_arch
+  print(task)
+  print(FLAGS.model_arch)
   params = config_factory.build_experiment_configs(
       task=task,#pretrain
       model_arch=model_arch,#tx_fac
