@@ -66,7 +66,7 @@ class ViTBase(ModelConfig):
   # pre-tx projection
   pre_projection: bool = False  # True if finetuning a modality-agnostic model
   # network size parameters
-  d_model: int = 1024
+  d_model: int = 512
   d_kv: int = 64
   d_ff: int = 3072
   num_layers: int = 12
