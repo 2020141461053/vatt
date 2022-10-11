@@ -75,11 +75,11 @@ class Evaluation(Dataset):
   """Evauation dataset configuration."""
 
   name: Tuple[str, Ellipsis] = (
-      'esc50',
+      #'esc50',
       'hmdb51',
-      'ucf101',
-      'youcook2',
-      'msrvtt',
+     # 'ucf101',
+     # 'youcook2',
+     # 'msrvtt',
       )
   split: str = 'test'
   video_stride: int = 2
