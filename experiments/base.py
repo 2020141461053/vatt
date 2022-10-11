@@ -442,7 +442,7 @@ class Executor(object):
 
     # construct summary writer for Tensorboard
     summary_writer = SummaryWriter(model_dir, 'eval')
-
+    print("checkpoint_path:"+self.params.checkpoint_path)
     if self.params.checkpoint_path and not self._manual_restore:
       logging.info(
           'Override checkpoint found. Restoring the model from the '

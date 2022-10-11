@@ -1,7 +1,7 @@
 # VATT in 
 
 /public/home/lsy/anaconda3/envs/pbw/lib/python3.8/site-packages
-/public/home/lsy/anaconda3/envs/pbw/lib/python3.8/site-packages/vatt/vatt_mosi-master
+/public/home/lsy/anaconda3/envs/pbw/lib/python3.8/site-packages/vatt
 
 This is the official code release for [VATT: Transformers for Multimodal
 Self-Supervised Learning from Raw Video, Audio and
@@ -52,9 +52,9 @@ Please download [this file](https://storage.cloud.google.com/tf_model_garden/vis
 ## PreTrain
 
 Assuming all datasets are stored and dataloaders are functioning, pre-training
-can be lauched using the following: `python -m vatt.main --task=pretrain --mode=train --model_dir=PATH/TO/RUN --model_arch=tx_fac --strategy_type=mirrored`
-
-If `--mode=train`, the self-supervised training will launch and if `--mode=eval`
+can be lauched using the following: `
+python -m vatt.main --task=pretrain --mode=train --model_dir=PATH/TO/RUN --model_arch=tx_fac --strategy_type=mirrored --override_checkpoint=PATH/TO/CHECKPOINT
+`If `--mode=train`, the self-supervised training will launch and if `--mode=eval`
 the thorough evaluation will be launched.
 
 The evaluation pipeline constantly loops over the `model_dir` path and looks for
