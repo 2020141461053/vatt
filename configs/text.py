@@ -60,7 +60,7 @@ class T5Base(ModelConfig):
   max_relative_distance: int = 64
   use_agg_token: bool = True
   # network size parameters
-  d_model: int = 512
+  d_model: int = 768
   d_kv: int = 64
   d_ff: int = 3072
   num_layers: int = 12
