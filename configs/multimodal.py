@@ -97,7 +97,7 @@ class CNNBackboneConfig(BackboneConfig):
 class TxBackboneConfig(BackboneConfig):
   """General common configuration for Transformer-based backbone stack."""
 
-  video_backbone: str = 'vit_medium'
+  video_backbone: str = 'vit_base'
   audio_backbone: str = 'wat_base'
   text_backbone: str = 't5_small'
 
