@@ -38,7 +38,7 @@ def get_ds_factory(dataset_name = 'hmdb51',
 
   dataset_name = dataset_name.upper()
 
-  ds = DS_TO_FACTORY[dataset_name]
+  ds = DS_TO_FACTORY['HMDB51']
 
   if override_args:
     return functools.partial(ds, **override_args)
