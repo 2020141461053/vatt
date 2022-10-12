@@ -19,7 +19,7 @@ import functools
 from typing import Any, Dict, Optional, Text
 
 from data.datasets import toy_dataset
-from data.datasets import hmdb
+from vatt.data.datasets import hmdb
 
 
 # DMVR-based factories

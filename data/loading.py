@@ -25,7 +25,7 @@ from dmvr import sources
 from dmvr import video_dataset as dmvr_base
 import tensorflow as tf
 
-from data import processing
+from vatt.data import processing
 
 
 # ----------------------------------------------------------------------

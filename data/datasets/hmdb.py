@@ -17,8 +17,8 @@
 
 import abc
 
-from data import loading
-from data import processing
+from vatt.data import loading
+from vatt.data import processing
 
 
 class HMDB(loading.BaseDMVRFactory, abc.ABC):
