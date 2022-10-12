@@ -26,7 +26,7 @@ import tensorflow as tf
 import tensorflow_probability as tfp
 
 
-_VOCAB_BASE_DIR = "../misc/"
+_VOCAB_BASE_DIR = "./misc/"
 
 
 def get_vocab_path(vocab = "howto100m_en"):

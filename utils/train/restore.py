@@ -23,7 +23,7 @@ from absl import logging
 import tensorflow as tf
 import tensorflow_addons.image as tfa_image
 
-_TEXT_EMBEDDINGS_DIR = "../misc/"
+_TEXT_EMBEDDINGS_DIR = "./misc/"
 
 _KRS_TO_CKPT = [
     [r"^(.*)video_module/vit_(.*?)/(.*):0",
