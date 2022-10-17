@@ -112,6 +112,7 @@ def extract_frames(video_path: str,
       .filter("scale", new_width, -1)
       .output("pipe:", format="image2pipe")
   )
+
   jpeg_bytes, _ = cmd.run(capture_stdout=True, quiet=True)
   jpeg_bytes = jpeg_bytes.split(_JPEG_HEADER)[1:]
   jpeg_bytes = map(lambda x: _JPEG_HEADER + x, jpeg_bytes)
@@ -177,7 +178,7 @@ def main(argv):
       c = f.readlines()
   for i in c:
       i = i.rstrip('\n')
-      # print(i)
+      print(i)
       break_video.append(i)
   input_csv = pd.read_csv(FLAGS.csv_path)
   if FLAGS.num_shards == -1:

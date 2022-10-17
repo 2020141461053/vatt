@@ -1,0 +1,17 @@
+/home/ubuntu/HDD2T/MYT/VATT/kinetics-dataset/k400/test/IhanWvpHGu8_001243_001253.mp4
+/home/ubuntu/HDD2T/MYT/VATT/kinetics-dataset/k400/test/DX6bvKEg_R0_000087_000097.mp4
+/home/ubuntu/HDD2T/MYT/VATT/kinetics-dataset/k400/test/wu4rnwbkNfw_000062_000072.mp4
+/home/ubuntu/HDD2T/MYT/VATT/kinetics-dataset/k400/test/c57P73j3cfo_000033_000043.mp4
+/home/ubuntu/HDD2T/MYT/VATT/kinetics-dataset/k400/test/XFkykETgkoo_002967_002977.mp4
+/home/ubuntu/HDD2T/MYT/VATT/kinetics-dataset/k400/test/305P2f9_lko_004145_004155.mp4
+/home/ubuntu/HDD2T/MYT/VATT/kinetics-dataset/k400/test/Lw14NH9kAqE_000759_000769.mp4
+/home/ubuntu/HDD2T/MYT/VATT/kinetics-dataset/k400/test/B4bn9G6__sY_000086_000096.mp4
+/home/ubuntu/HDD2T/MYT/VATT/kinetics-dataset/k400/test/BvBVQmm2RcM_000082_000092.mp4
+/home/ubuntu/HDD2T/MYT/VATT/kinetics-dataset/k400/test/y7cYaYX4gdw_000047_000057.mp4
+/home/ubuntu/HDD2T/MYT/VATT/kinetics-dataset/k400/test/jJFqy6yiXzQ_000024_000034.mp4
+/home/ubuntu/HDD2T/MYT/VATT/kinetics-dataset/k400/test/CxjipYE57Yo_000199_000209.mp4
+/home/ubuntu/HDD2T/MYT/VATT/kinetics-dataset/k400/test/084k_RL3ApU_000109_000119.mp4
+/home/ubuntu/HDD2T/MYT/VATT/kinetics-dataset/k400/test/74iWTzKsHPI_000110_000120.mp4
+/home/ubuntu/HDD2T/MYT/VATT/kinetics-dataset/k400/test/2xWiEVNUvhE_000064_000074.mp4
+/home/ubuntu/HDD2T/MYT/VATT/kinetics-dataset/k400/test/z35QkFl2tyU_000026_000036.mp4
+/home/ubuntu/HDD2T/MYT/VATT/kinetics-dataset/k400/test/kinMMqkswUk_000120_000130.mp4

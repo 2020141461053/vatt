@@ -1,0 +1,4 @@
+/home/ubuntu/HDD2T/MYT/VATT/kinetics-dataset/k400/val/QfuO07EqYhI_000054_000064.mp4
+/home/ubuntu/HDD2T/MYT/VATT/kinetics-dataset/k400/val/I0luMKjIZyg_000422_000432.mp4
+/home/ubuntu/HDD2T/MYT/VATT/kinetics-dataset/k400/val/_6uq-NBo3Bk_000012_000022.mp4
+/home/ubuntu/HDD2T/MYT/VATT/kinetics-dataset/k400/val/sAA809R_u1E_000077_000087.mp4
