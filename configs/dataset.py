@@ -59,7 +59,7 @@ class Dataset(base_config.Config):
 class Pretrain(Dataset):
   """Pre-train dataset configuration."""
 
-  name: str = 'howto100m+audioset'
+  name: str = 'howto100m+audioset+mosi'
   split: str = 'train'
   max_num_words: int = 16
   max_context_sentences: int = 4
